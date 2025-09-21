@@ -1,0 +1,12 @@
+# fastapi-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fastapi-pvc
+  namespace: standard
+spec:
+  accessModes: [ "ReadWriteMany" ]
+  storageClassName: "local-path"
+  resources:
+    requests:
+      storage: 10Gi

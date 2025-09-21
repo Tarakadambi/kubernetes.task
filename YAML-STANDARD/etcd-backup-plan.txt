@@ -1,0 +1,17 @@
+# ETCD Backup Plan – Kubernetes Microservices Deployment (Streaming Platform)
+
+As I do not have SSH or administrative access to the K3s server, I am unable to execute the ETCD backup directly.
+
+However, if access were granted, the following command would be used to perform an ETCD backup:
+
+    k3s etcd-snapshot save --name etcd-backup
+
+This would generate a snapshot file in the following path on the K3s master node:
+
+    /var/lib/rancher/k3s/server/db/snapshots/
+
+The snapshot file would then be retrieved using SCP or another secure file transfer method.
+
+    scp user@<k3s-host>:/var/lib/rancher/k3s/server/db/snapshots/etcd-backup-<timestamp>.zip .
+
+This backup ensures recovery of cluster state in the event of node failure or misconfiguration.
